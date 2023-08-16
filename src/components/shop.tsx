@@ -2,10 +2,6 @@ import { useContext } from "react";
 import { authContext } from "../contexts/authContext";
 
 export const Shop = () => {
-  const authCont = useContext(authContext);
-  return (
-    <button onClick={() => authCont?.setLogin(!authCont.isLoggedIn)}>
-      Shop Auth
-    </button>
-  );
+  const { isLoggedIn, setLogin } = useContext(authContext);
+  return <button onClick={() => setLogin(!isLoggedIn)}>Shop Auth</button>;
 };

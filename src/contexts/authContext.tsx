@@ -4,7 +4,7 @@ type contextState = {
   isLoggedIn: boolean;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export const authContext = createContext<contextState | null>(null);
+export const authContext = createContext({} as contextState);
 
 export const AuthContextProvider = (props: contextProps) => {
   const [isLoggedIn, setLogin] = useState(false);

@@ -9,7 +9,7 @@ const people = [
   { firstName: "Yaradua", lastName: "musa" },
 ];
 export const Greet = (props: GreetProps) => {
-  const contextProps = useContext(authContext);
+  const { isLoggedIn, setLogin } = useContext(authContext);
   return (
     <div>
       <h1>Hello World</h1>
@@ -17,14 +17,12 @@ export const Greet = (props: GreetProps) => {
       {people.map(({ firstName, lastName }, index) => (
         <Person lastName={lastName} key={index} firstName={firstName} />
       ))}
-      {contextProps?.isLoggedIn ? (
+      {isLoggedIn ? (
         <p>You have {props.count} notifications.</p>
       ) : (
         <p>Welcome {props.name} please log in</p>
       )}
-      <button onClick={() => contextProps?.setLogin(!contextProps?.isLoggedIn)}>
-        Change Auth
-      </button>
+      <button onClick={() => setLogin(!isLoggedIn)}>Change Auth</button>
 
       <Shop />
     </div>
