@@ -1,9 +1,10 @@
 // import { useState } from 'react'
 import './App.css'
+import { Greet } from './components/greet'
 
 function App() {
   return (
-    <h1>Hello there</h1>
+    <Greet name='Cherish' count={11} isLoggedIn={true}/>
   )
 }
 
