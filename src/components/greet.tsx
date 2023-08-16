@@ -1,17 +1,32 @@
-import { Person } from "./person"
-type GreetProps = {name:string, count:number, isLoggedIn:boolean}
-const people=[{firstName: "John", lastName: "Doe"},{firstName: "ayo", lastName: "muhammas"},{firstName: "Yaradua", lastName: "musa"},]
-export const Greet = (props:GreetProps)=>{
-return(
+import { useContext } from "react";
+import { Person } from "./person";
+import { authContext } from "../contexts/authContext";
+import { Shop } from "./shop";
+type GreetProps = { name: string; count: number; isLoggedIn: boolean };
+const people = [
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "ayo", lastName: "muhammas" },
+  { firstName: "Yaradua", lastName: "musa" },
+];
+export const Greet = (props: GreetProps) => {
+  const contextProps = useContext(authContext);
+  return (
     <div>
-        <h1>Hello World</h1>
-        <h2>The people are</h2>
-        {people.map(({firstName, lastName})=> <Person lastName={lastName} firstName={firstName}/>)}
-        {(props.isLoggedIn)?
-        <>
+      <h1>Hello World</h1>
+      <h2>The people are</h2>
+      {people.map(({ firstName, lastName }, index) => (
+        <Person lastName={lastName} key={index} firstName={firstName} />
+      ))}
+      {contextProps?.isLoggedIn ? (
         <p>You have {props.count} notifications.</p>
-        </>:<p>Welcome {props.name} please log in</p>
-}
+      ) : (
+        <p>Welcome {props.name} please log in</p>
+      )}
+      <button onClick={() => contextProps?.setLogin(!contextProps?.isLoggedIn)}>
+        Change Auth
+      </button>
+
+      <Shop />
     </div>
-)
-}
+  );
+};

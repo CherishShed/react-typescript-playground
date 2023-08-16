@@ -1,13 +1,17 @@
 import { createContext, useState } from "react";
-type contextProps={children:JSX.Element}
-const authContext = createContext({});
+type contextProps = { children: JSX.Element };
+type contextState = {
+  isLoggedIn: boolean;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export const authContext = createContext<contextState | null>(null);
 
-export const AuthContextProvider = (props:contextProps) => {
-    const [isLoggedIn, setLogin] = useState(false);
+export const AuthContextProvider = (props: contextProps) => {
+  const [isLoggedIn, setLogin] = useState(false);
 
-    return (
-        <authContext.Provider value={{isLoggedIn, setLogin}}>
-            {props.children}
-        </authContext.Provider>
-    )
-}
+  return (
+    <authContext.Provider value={{ isLoggedIn, setLogin }}>
+      {props.children}
+    </authContext.Provider>
+  );
+};
