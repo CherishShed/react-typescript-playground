@@ -22,7 +22,7 @@ export const Greet = (props: GreetProps) => {
       ) : (
         <p>Welcome {props.name} please log in</p>
       )}
-      <button onClick={() => setLogin(!isLoggedIn)}>Change Auth</button>
+      <button onClick={() => setLogin({ type: "login" })}>Login</button>
 
       <Shop />
     </div>
