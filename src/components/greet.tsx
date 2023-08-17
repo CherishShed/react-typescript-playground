@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Person } from "./person";
 import { authContext } from "../contexts/authContext";
 import { Shop } from "./shop";
+import { Counter } from "./counter";
+import { CountContextProvider } from "../contexts/counterCountext";
 type GreetProps = { name: string; count: number; isLoggedIn: boolean };
 const people = [
   { firstName: "John", lastName: "Doe" },
@@ -25,6 +27,9 @@ export const Greet = (props: GreetProps) => {
       <button onClick={() => setLogin({ type: "login" })}>Login</button>
 
       <Shop />
+      <CountContextProvider>
+        <Counter />
+      </CountContextProvider>
     </div>
   );
 };
