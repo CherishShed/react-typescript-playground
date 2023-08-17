@@ -1,0 +1,15 @@
+.primary{
+    padding: 10px 20px;
+        color: white;
+        border-radius: 10px;
+    background-color: blue !important;
+    color:white;
+}
+
+.secondary{
+    padding: 10px 20px;
+        color: white;
+        border-radius: 10px;
+    background-color: purple !important;
+    color:white
+}

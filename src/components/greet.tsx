@@ -5,6 +5,7 @@ import { Shop } from "./shop";
 import { Counter } from "./counter";
 import { CountContextProvider } from "../contexts/counterCountext";
 import { List } from "./list";
+import { Button } from "./customButton";
 type GreetProps = { name: string; count: number; isLoggedIn: boolean };
 const people = [
   { firstName: "John", lastName: "Doe" },
@@ -33,6 +34,7 @@ export const Greet = (props: GreetProps) => {
       </CountContextProvider>
 
       <List list={["liffe", "Jom", "jjjj"]} onclick={console.log} />
+      <Button label="Shedi" variant="primary" onclick={console.log} />
     </div>
   );
 };
