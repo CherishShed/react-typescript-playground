@@ -4,6 +4,7 @@ import { authContext } from "../contexts/authContext";
 import { Shop } from "./shop";
 import { Counter } from "./counter";
 import { CountContextProvider } from "../contexts/counterCountext";
+import { List } from "./list";
 type GreetProps = { name: string; count: number; isLoggedIn: boolean };
 const people = [
   { firstName: "John", lastName: "Doe" },
@@ -30,6 +31,8 @@ export const Greet = (props: GreetProps) => {
       <CountContextProvider>
         <Counter />
       </CountContextProvider>
+
+      <List list={["liffe", "Jom", "jjjj"]} onclick={console.log} />
     </div>
   );
 };
